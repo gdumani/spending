@@ -73,3 +73,11 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "bullet", "~> 7.0", :group => :development
+
+gem "rspec-rails", "~> 6.0", :groups => [:development, :test]
+
+gem "devise", "~> 4.9"
+
+gem "cancancan", "~> 3.5"
