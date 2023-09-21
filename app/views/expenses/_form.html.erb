@@ -11,11 +11,7 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
+ 
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
@@ -25,6 +21,9 @@
     <%= form.label :amount, style: "display: block" %>
     <%= form.text_field :amount %>
   </div>
+  <div>
+    <%= form.label :group_id, style: "display: block" %>
+    <%= form.collection_select :group_id, Group.where(user: current_user), :id, :name, :multiple => true%>
 
   <div>
     <%= form.submit %>

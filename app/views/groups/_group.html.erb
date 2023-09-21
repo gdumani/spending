@@ -1,17 +1,24 @@
-<div id="<%= dom_id group %>">
-  <p>
-    <strong>User:</strong>
-    <%= group.user_id %>
-  </p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= group.name %>
-  </p>
-
-  <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
-  </p>
-
+<div class="container bg-secondary-subtle">
+    <div id="<%= dom_id group %>", class="row align-items-center justify-content-between shadow">
+      <div class="col-2">
+        <img
+          src="<%= group.icon %>"
+          class="img-fluid"
+          alt="category-icon-<%= group.name.downcase %>"
+        />
+      </div>
+      <div class="col-5">
+        <p class="text-black"><%= group.name %></p>
+      </div>
+      <div class="col-3">
+        <%= link_to edit_group_path(group), class: "btn btn-sm btn-outline-primary me-2" do %>
+          <i class="bi bi-pencil-square"></i>
+        <% end %>
+        <%= link_to group_path(group), method: :delete, class: "btn btn-sm btn-outline-danger" do %>
+          <i class="bi bi-trash"></i>
+        <% end %>
+      </div>
+    </div>
 </div>
+
