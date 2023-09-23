@@ -3,11 +3,12 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = current_user.groups
+    @groups = Group.all
   end
 
   # GET /groups/1 or /groups/1.json
-  def show
+  def show 
+    @expenses = current_user.expenses.where(group: @group)
   end
 
   # GET /groups/new
