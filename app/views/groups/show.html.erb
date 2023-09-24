@@ -2,12 +2,17 @@
 
 <%= render @group %>
 
-<h2>Expenses</h2>
-@expenses.each do |expense|
-  <%= render 'expenses/expense' %>
-end
-<div>
-  <%= link_to groups_path, class: "btn btn-sm btn-outline-primary mx-4" do %>
-     <i class="bi bi-arrow-left"></i>
+<div id="expenses", class="container border">
+  <h2>Expenses</h2>
+
+  <% @expenses.each do |expense| %>
+    <%= button_to expense, method: :get, class:"btn col-12 " do%>
+      <%= render expense %>
+    <% end %>
   <% end %>
+  <div>
+    <%= link_to groups_path, class: "btn btn-sm btn-outline-primary mx-4" do %>
+      <i class="bi bi-arrow-left"></i>
+    <% end %>
+  </div>
 </div>

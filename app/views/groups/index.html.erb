@@ -4,7 +4,7 @@
   <h1>Groups</h1>
   
   <% @groups.each do |group| %>
-  <%= button_to group, method: :get do %>
+  <%= button_to group, method: :get , class:'btn' do %>
     <%= render group %>
   <% end %>
     <% end %>

@@ -1,17 +1,27 @@
-<div id="<%= dom_id expense %>">
-  <p>
-    <strong>User:</strong>
-    <%= expense.author.name %>
-  </p>
+<div class="container shadow">
+  <div id="<%= dom_id expense %>", class="row align-items-center justify-content-between">
+    
+    <div class="col-6">
+      <%= content_tag :strong, expense.name %>
+    </div>
 
-  <p>
-    <strong>Name:</strong>
-    <%= expense.name %>
-  </p>
+    <div class="col-3">
+      <strong>$</strong>
+      <%= expense.amount %>
+    </div>
 
-  <p>
-    <strong>Amount:</strong>
-    <%= expense.amount %>
-  </p>
+    <div class="col-3">
+      <%= link_to edit_expense_path(expense), class: "btn btn-sm btn-outline-primary me-2" do %>
+        <i class="bi bi-pencil-square"></i>
+      <% end %>
+      <%= link_to expense_path(expense), method: :delete, class: "btn btn-sm btn-outline-danger" do %>
+        <i class="bi bi-trash"></i>
+      <% end %>
+    </div>
+  </div>
 
+  <div class="row">  
+    <%= content_tag :p, expense.created_at.strftime('%e %b %Y'), class:'col-6'%>
+  </div>
 </div>
+
