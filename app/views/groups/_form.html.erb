@@ -18,10 +18,11 @@
 
   <div>
     <%= form.label :icon, style: "display: block" %>
-    <%= form.text_field :icon %>
+    <%= form.select(:icon, options_for_select(ICON_URLS), {}, class: 'form-control') %>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
-<% end %>
+
+  <% end %>

@@ -11,6 +11,9 @@
       <div class="col-5">
         <p class="text-black"><%= group.name %></p>
       </div>
+      <div class="col-2">
+        <p class="text-black">$ <%= group.expenses.where(author: current_user).sum(:amount) %></p> 
+      </div>
       <div class="col-3">
         <%= link_to edit_group_path(group), class: "btn btn-sm btn-outline-primary me-2" do %>
           <i class="bi bi-pencil-square"></i>
