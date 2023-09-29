@@ -65,6 +65,6 @@ class ExpensesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def expense_params
-      params.require(:expense).permit(:name, :amount, ).merge(author: current_user)
+      params.require(:expense).permit(:name, :amount, group_ids: []).merge(author: current_user)
     end
 end

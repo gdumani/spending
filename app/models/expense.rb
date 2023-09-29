@@ -2,6 +2,8 @@ class Expense < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
   has_and_belongs_to_many :groups
 
+  before_destroy :remove_from_groups
+
   validates :name, presence: true
   validates :amount, numericality: true
 
@@ -19,5 +21,11 @@ class Expense < ApplicationRecord
 
   def total_for_user_and_group(user, group)
     joins(:groups).where(groups: { id: group.id }, author: user).total
+  end
+
+  private
+
+  def remove_from_groups
+    self.groups.clear
   end
 end

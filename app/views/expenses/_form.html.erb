@@ -22,8 +22,13 @@
     <%= form.text_field :amount %>
   </div>
   <div>
-    <%= form.label :group_id, style: "display: block" %>
-    <%= form.collection_select :group_id, Group.where(user: current_user), :id, :name, :multiple => true%>
+ 
+    <% Group.all.each do |group| %>
+  <div class="form-check">
+    <%= form.check_box :group_ids, { multiple: true }, group.id, nil %>
+    <%= form.label "expense[group_ids][]", group.name, class: "form-check-label" %>
+  </div>
+<% end %>
 
   <div>
     <%= form.submit %>
