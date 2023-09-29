@@ -12,5 +12,4 @@ class ExpensesGroupsController < ApplicationController
     expense.groups.delete(group)
     redirect_to expense_path(expense)
   end
-
 end
