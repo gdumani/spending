@@ -1,0 +1,27 @@
+<nav class="navbar navbar-dark text-white bg-primary fixed-top">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <%=content_tag :h1, @current_page %>
+      <%= content_tag :p, current_user.name %>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body bg-dark">
+        <ul class="navbar-nav text-black justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <%= link_to 'Back to Groups', groups_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Edit Profile',  edit_user_registration_path, class: 'nav-link' %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

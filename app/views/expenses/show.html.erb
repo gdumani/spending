@@ -1,10 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @expense %>
-
+<br>
+<h3>Groups</h3>
+<hr>
+<ul>
+<%@expense.groups.each do |group|%>
+  <li><%= link_to group.name, group_path(group) %></li>
+<%end%>
+</ul>
+<br>
+<hr>
 <div>
   <%= link_to "Edit this expense", edit_expense_path(@expense) %> |
-  <%= link_to "Back to expenses", expenses_path %>
+  <%= link_to "Back", :back %>
 
   <%= button_to "Destroy this expense", @expense, method: :delete %>
 </div>

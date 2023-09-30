@@ -1,9 +1,10 @@
 <p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
+<% @current_page='Expenses'%>
+  <%= render 'layouts/navbar'%>
 
-<%= render @group %>
-
-<div id="expenses", class="container border">
-  <h2>Expenses</h2>
+<div id="expenses", class="container border my-5 py-5">
+<%= render @group%>
 
   <% @expenses.each do |expense| %>
     <%= button_to expense, method: :get, class:"btn col-12 " do%>
@@ -14,5 +15,12 @@
     <%= link_to groups_path, class: "btn btn-sm btn-outline-primary mx-4" do %>
       <i class="bi bi-arrow-left"></i>
     <% end %>
+  </div>
+</div>
+<div class='clearfix'>
+  <div class="fixed-bottom container bg-success p-3">
+    <div class="row text-center">
+      <%= link_to "New Expense", new_expense_path, class:'col m-1 p-3 border border-white align-  text-white' %>
+    </div>
   </div>
 </div>

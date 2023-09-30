@@ -1,10 +1,18 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<%if current_user%>
-<%= content_tag :h2, "Welcome #{current_user.name}" %>
-<%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'home-link' %>
+<div class="container">
+  <%= content_tag :h1, 'Expenses', class: 'text-center p-5' %>
 
-<%= link_to 'Edit Profile',  edit_user_registration_path %>
-<% else %>
-<%= link_to 'Sign in', new_user_session_path %>
-<% end %>
+  <img
+    src="https://cdn3.iconfinder.com/data/icons/iconpark-vol-8/48/expenses-128.png"
+    class="img-fluid mx-auto d-block"
+    alt="Expenses logo"
+  />
+  <p class="text-center p-5">
+    <strong>Track your expenses</strong>
+  </p>
+
+  <%if current_user%>
+    <% redirect_to groups_path %>
+  <% else %>
+  <%= link_to 'Sign in', new_user_session_path, class: 'fixed-bottom col bg-primary text-white text-center p-3 m-4' %>
+  <% end %>
+</div>

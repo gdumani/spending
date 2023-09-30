@@ -1,15 +1,21 @@
 <p style="color: green"><%= notice %></p>
-
-<div id="groups", class="container border">
-  <h1>Groups</h1>
+<p style="color: red"><%= alert %></p>
+<% @current_page='Groups'%>
+<%= render 'layouts/navbar'%>
+<div id="groups", class="container border mt-5 mb-5 pb-5 mb-5">
+  <h1></h1>
   
   <% @groups.each do |group| %>
-  <%= button_to group, method: :get , class:'btn col-12' do %>
-    <%= render group %>
-  <% end %>
+    <%= button_to group, method: :get , class:'btn col-12' do %>
+      <%= render group %>
     <% end %>
-
-  <%= link_to "New group", new_group_path %>
-
+  <% end %>
+</div>
+<div class='clearfix'>
+  <div class="fixed-bottom container bg-success p-3">
+    <div class="row text-center">
+      <%= link_to "New group", new_group_path, class:'col m-1 p-3 border border-white align-  text-white' %>
+    </div>
+  </div>
 </div>
 
