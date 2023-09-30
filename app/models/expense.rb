@@ -6,26 +6,15 @@ class Expense < ApplicationRecord
 
   validates :name, presence: true
   validates :amount, numericality: true
-
-  # def total
-  #   sum(:amount)
-  # end
-
-  # def total_for_user(user)
-  #   where(author: user).total
-  # end
-
-  # def total_for_group(group)
-  #   joins(:groups).where(groups: { id: group.id }).total
-  # end
-
-  # def total_for_user_and_group(user, group)
-  #   joins(:groups).where(groups: { id: group.id }, author: user).total
-  # end
+  validates :at_least_one_group?, presence: true
 
   private
 
   def remove_from_groups
     groups.clear
+  end
+
+  def at_least_one_group?
+    groups.any?
   end
 end
