@@ -1,0 +1,43 @@
+// Import Bootstrap styles
+@import 'application.bootstrap';
+
+// Override Bootstrap variables
+$primary: #3778c2;
+$secondary: #434b54;
+$success: #5fb523;
+
+@font-face {
+  font-family: 'Proxima Nova Light';
+  src: url('/assets/fonts/proxima-nova-font.otf') format('otf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova Bold';
+  src: url('/assets/fonts/proxima-nova-font.otf') format('otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Norican&display=swap');
+
+// Set default font family
+body {
+  font-family: 'Proxima Nova Light', Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Proxima Nova Bold', Arial, sans-serif;
+}
+
+.logo {
+  font-family: 'Norican', cursive;
+  font-size: 2.5rem;
+  color: #3778c2;
+}
