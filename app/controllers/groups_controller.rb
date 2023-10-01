@@ -22,6 +22,8 @@ class GroupsController < ApplicationController
   # POST /groups or /groups.json
   def create
     @group = Group.new(group_params)
+    
+    authorize! :create, @group
 
     respond_to do |format|
       if @group.save
@@ -36,6 +38,7 @@ class GroupsController < ApplicationController
 
   # PATCH/PUT /groups/1 or /groups/1.json
   def update
+    authorize! :update, @group
     respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to group_url(@group), notice: 'Group was successfully updated.' }
@@ -49,6 +52,8 @@ class GroupsController < ApplicationController
 
   # DELETE /groups/1 or /groups/1.json
   def destroy
+    authorize! :destroy, @group
+    
     @group.destroy
 
     respond_to do |format|

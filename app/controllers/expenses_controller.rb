@@ -20,6 +20,7 @@ class ExpensesController < ApplicationController
   # POST /expenses or /expenses.json
   def create
     @expense = Expense.new(expense_params)
+    authorize! :create, @expense
 
     respond_to do |format|
       if @expense.save
@@ -34,6 +35,8 @@ class ExpensesController < ApplicationController
 
   # PATCH/PUT /expenses/1 or /expenses/1.json
   def update
+    authorize! :update, @expense
+
     respond_to do |format|
       if @expense.update(expense_params)
         format.html { redirect_to groups_path, notice: 'Expense was successfully updated.' }
@@ -47,6 +50,7 @@ class ExpensesController < ApplicationController
 
   # DELETE /expenses/1 or /expenses/1.json
   def destroy
+    authorize! :destroy, @expense
     @expense.destroy
 
     respond_to do |format|
