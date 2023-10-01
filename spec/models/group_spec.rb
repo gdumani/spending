@@ -7,17 +7,17 @@ RSpec.describe Group, type: :model do
   end
 
   it 'is valid with valid attributes' do
-    group = Group.new(name: 'Sample', icon: 'icon_pointer', user: user)
+    group = Group.new(name: 'Sample', icon: 'icon_pointer', user:)
     expect(group).to be_valid
   end
 
   it 'is not valid without a name' do
-    group = Group.new(icon: 'icon_pointer', user: user)
+    group = Group.new(icon: 'icon_pointer', user:)
     expect(group).to_not be_valid
   end
 
   it 'is not valid without an icon' do
-    group = Group.new(name: 'Sample', user: user)
+    group = Group.new(name: 'Sample', user:)
     expect(group).to_not be_valid
-  end 
+  end
 end

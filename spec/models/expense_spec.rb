@@ -8,7 +8,7 @@ RSpec.describe Expense, type: :model do
     group.user = user
     group.save
   end
- 
+
   it 'is valid with valid attributes' do
     expense = Expense.new(name: 'Sample', amount: 5, author: user)
     expense.groups << group
@@ -24,7 +24,7 @@ RSpec.describe Expense, type: :model do
     expense = Expense.new(amount: 5, author: user)
     expense.groups << group
     expect(expense).to_not be_valid
-  end 
+  end
 
   it 'is not valid without an amount' do
     expense = Expense.new(name: 'Sample', author: user)

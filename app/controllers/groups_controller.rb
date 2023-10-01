@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
   # POST /groups or /groups.json
   def create
     @group = Group.new(group_params)
-    
+
     authorize! :create, @group
 
     respond_to do |format|
@@ -53,7 +53,7 @@ class GroupsController < ApplicationController
   # DELETE /groups/1 or /groups/1.json
   def destroy
     authorize! :destroy, @group
-    
+
     @group.destroy
 
     respond_to do |format|
